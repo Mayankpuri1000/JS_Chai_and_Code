@@ -31,5 +31,22 @@ let myName = "Mayank"
 let anotherName = myName
 anotherName = "Mayank Puri"
 
-console.log(myName);
-console.log(anotherName);
+// console.log(myName);
+// console.log(anotherName);
+
+let user1 = { 
+    email: "user@google.com", 
+    upi_id: "user@ybl"
+}
+
+let user2 = user1
+   
+console.log(user1.email);
+console.log(user2.email);
+
+user1.email = "mayank@google.com"
+
+console.log(user1.email);
+console.log(user2.email);
+
+
