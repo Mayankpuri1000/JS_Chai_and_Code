@@ -29,8 +29,27 @@ const obj3 = {...obj1, ...obj2}; // Using spread Operator to merge two objects
 // console.log(Object.keys(tinderUser)); // Returns an array
 // console.log(Object.values(tinderUser)); // Returns an array
 
-console.log(tinderUser.hasOwnProperty("isLoggedIn"));
-console.log(tinderUser.hasOwnProperty("isLogged"));
+// console.log(tinderUser.hasOwnProperty("isLoggedIn"));
+// console.log(tinderUser.hasOwnProperty("isLogged"));
+
+const course = { 
+    courseName: "JS in Hindi", 
+    coursePrice: 999, 
+    courseInstructor: "Hitesh"
+}
+
+const {courseInstructor: instructor} = course
+console.log(instructor); // This is called object restructuring (Line 41 and Line 42)
+
+// JSON Format
+/*
+{ 
+    "name": "Mayank", 
+    "courseName": "JS in Hindi", 
+    "coursePrice": "free"
+}
+*/
+
 
 
 
