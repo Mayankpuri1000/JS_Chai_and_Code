@@ -37,7 +37,7 @@ console.log(addTwo(3,4));
 */
 
 // Implicit Return
-const addTwo = (num1, num2) =>  ( num1 + num2 ) // Used a lot in React.js
+const addTwo = (num1, num2) =>  ( num1 + num2 ) // Used a lot in React.js.
 
 console.log(addTwo(3,4));
 
