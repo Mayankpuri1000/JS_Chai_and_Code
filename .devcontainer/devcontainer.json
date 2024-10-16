@@ -23,7 +23,8 @@
 				"wayou.vscode-todo-highlight"
 			],
 			"settings": {
-				"editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
+				"editor.fontFamily": "JetBrains Mono",
+				"editor.fontWeight": "bold",
 				"editor.fontSize": 12,
 				"terminal.integrated.fontSize": 12,
 				"editor.wordWrap": "on"
