@@ -106,84 +106,94 @@ const p = document.createElement('p');
 let prevGuess = [];
 let numGuess = 1;
 
-let playGame = true;
+let playGame = true; // this variable is necessary when we are designing games.
 
 if (playGame) {
   submit.addEventListener('click', function (e) {
     e.preventDefault();
-    const guess = parseInt(userInput.value);
-    console.log(guess);
-    validateGuess(guess);
+    const guess = parseInt(userInput.value)
+    validateGuess(guess)
   });
 }
 
-function validateGuess(guess) {
-  if (isNaN(guess)) {
-    alert('PLease enter a valid number');
-  } else if (guess < 1) {
-    alert('PLease enter a number more than 1');
-  } else if (guess > 100) {
-    alert('PLease enter a  number less than 100');
-  } else {
+// First we create a function where we will validate the guessed number
+function validateGuess(guess) {  
+// This is used a lot when we want to validate something either it could be an email or password etc.
+  if(isNaN(guess)){ 
+    alert("Please enter a valid number")
+  }
+  else if(guess < 1){ 
+    alert("Please enter a greater number")
+  }
+  else if(guess > 100){ 
+    alert("Please enter a smaller number")
+  }
+  else{ 
     prevGuess.push(guess);
-    if (numGuess === 11) {
+    if(numGuess === 11){ 
       displayGuess(guess);
-      displayMessage(`Game Over. Random number was ${randomNumber}`);
-      endGame();
-    } else {
-      displayGuess(guess);
-      checkGuess(guess);
+      displayMessage(`Game Over 😏😏. Random number was ${randomNumber}.`)
+      endGame()
+    }
+    else{ 
+      displayGuess(guess)
+      checkGuess(guess)
     }
   }
 }
 
+// The second function we create is to check a number.
 function checkGuess(guess) {
-  if (guess === randomNumber) {
-    displayMessage(`You guessed it right`);
+  if(guess === randomNumber){ 
+    displayMessage(`You guessed it right 👍🏻`)
     endGame();
-  } else if (guess < randomNumber) {
-    displayMessage(`Number is TOOO low`);
-  } else if (guess > randomNumber) {
-    displayMessage(`Number is TOOO High`);
+  }
+  else if(guess < randomNumber){ 
+    displayMessage(`Number is too low`)
+  }
+  else if(guess > randomNumber){ 
+    displayMessage(`Number is too high`)
   }
 }
 
-function displayGuess(guess) {
+//Third function we create is to display the guesses.
+function displayGuess(guess) { 
   userInput.value = '';
-  guessSlot.innerHTML += `${guess}, `;
+  guessSlot.innerHTML += `${guess}, `
   numGuess++;
-  remaining.innerHTML = `${11 - numGuess} `;
+  remaining.innerHTML = `${10 - numGuess}`
 }
 
-function displayMessage(message) {
-  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+// Fourth function we create is to see the DOM Manipulation
+function displayMessage(message) { 
+  lowOrHi.innerHTML = `<h3>${message}</h3>`
 }
 
-function endGame() {
-  userInput.value = '';
-  userInput.setAttribute('disabled', '');
-  p.classList.add('button');
-  p.innerHTML = `<h2 id="newGame">Start new Game</h2>`;
-  startOver.appendChild(p);
+// Games method - Start and end of a game
+function endGame() { 
+  userInput.value = ''
+  userInput.setAttribute('disabled', '')
+  p.classList.add('button')
+  p.innerHTML = `<h2 id = "newGame">Start new Game</h2>`
+  startOver.appendChild(p)
   playGame = false;
   newGame();
 }
 
-function newGame() {
-  const newGameButton = document.querySelector('#newGame');
-  newGameButton.addEventListener('click', function (e) {
+function newGame() { 
+  const newGameButton = document.querySelector('#newGame')
+  newGameButton.addEventListener('click', function(e){ 
     randomNumber = parseInt(Math.random() * 100 + 1);
-    prevGuess = [];
-    numGuess = 1;
-    guessSlot.innerHTML = '';
-    remaining.innerHTML = `${11 - numGuess} `;
-    userInput.removeAttribute('disabled');
-    startOver.removeChild(p);
+    prevGuess = []
+    numGuess = 1
+    guessSlot.innerHTML = ''
+    remaining.innerHTML = `${10 - numGuess}`
+    userInput.removeAttribute('disabled')
+    startOver.removeChild(p)
 
-    playGame = true;
+    playGame = true
   });
-}
-
+};
 
 ```
 
